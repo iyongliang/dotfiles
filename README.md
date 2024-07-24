@@ -1,6 +1,7 @@
 ```text
 .
 ├── LICENSE
+├── README.md
 ├── debian
 │   └── quiltrc
 ├── kitty
@@ -17,6 +18,14 @@
 │   │   ├── CMakeLists.txt
 │   │   ├── clion.desktop
 │   │   └── pycharm.desktop
+│   ├── nvim
+│   │   ├── init.lua
+│   │   ├── lazy-lock.json
+│   │   └── lua
+│   │       ├── colorscheme.lua
+│   │       ├── config
+│   │       ├── options.lua
+│   │       └── plugins.lua
 │   ├── sublime-text-3
 │   │   ├── python3.sublime-build
 │   │   └── sublime-package-recommend.md
@@ -31,4 +40,4 @@
     ├── tmux.conf
     └── zshrc
 
-8 directories, 23 files
+12 directories, 28 files
