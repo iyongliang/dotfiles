@@ -40,10 +40,24 @@ vim.opt.rtp:prepend(lazypath)
 --     opts: The table will be passed to the require(...).setup(opts)
 require("vim.treesitter.health").check()     
 require("lazy").setup({
-	-- Vscode-like pictograms
+	-- Show shortcut keymap
 	{
-		"onsails/lspkind.nvim",
-		event = { "VimEnter" },
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+		  -- your configuration comes here
+		  -- or leave it empty to use the default settings
+		  -- refer to the configuration section below
+		},
+		keys = {
+		  {
+			"<leader>?",
+			function()
+			  require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		  },
+		},
 	},
 	-- Colorscheme
 	"tanvirtin/monokai.nvim",
@@ -61,14 +75,6 @@ require("lazy").setup({
 		main = "ibl",
 		config = function()
 			require("config.indent-blankline")
-		end,
-	},
-	-- Status line
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("config.lualine")
 		end,
 	},
 })
