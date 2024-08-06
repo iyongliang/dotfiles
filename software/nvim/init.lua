@@ -8,7 +8,11 @@
 --   --recv-keys 9DBB0BE9366964F134855E2255F96FCF8231B6DD
 -- sudo apt update
 -- sudo apt install neovim
+-- optional:
+-- sudo apt install lua5.1 luarocks
+-- sudo apt install python3-neovim
 
+-- check health
 require("vim.lsp.health").check()
 
 -- load options
@@ -17,5 +21,5 @@ require("options")
 -- load Packervim
 require("plugins")
 
--- Set colorscheme
+-- set colorscheme
 require("colorscheme")
