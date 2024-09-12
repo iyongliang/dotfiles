@@ -3,19 +3,19 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local iszh = os.getenv("LANG")
 if iszh == "zh_CN.UTF-8" then
-	gitrepo = "https://gitee.com/iyongliang/mirror-lazy.nvim.git"
+  gitrepo = "https://gitee.com/iyongliang/mirror-lazy.nvim.git"
 else
-	gitrepo = "https://github.com/folke/lazy.nvim.git"
+  gitrepo = "https://github.com/folke/lazy.nvim.git"
 end
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		gitrepo,
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    gitrepo,
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -40,41 +40,60 @@ vim.opt.rtp:prepend(lazypath)
 --     opts: The table will be passed to the require(...).setup(opts)
 require("vim.treesitter.health").check()     
 require("lazy").setup({
-	-- Show shortcut keymap
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-		  -- your configuration comes here
-		  -- or leave it empty to use the default settings
-		  -- refer to the configuration section below
-		},
-		keys = {
-		  {
-			"<leader>?",
-			function()
-			  require("which-key").show({ global = false })
-			end,
-			desc = "Buffer Local Keymaps (which-key)",
-		  },
-		},
-	},
-	-- Colorscheme
-	"tanvirtin/monokai.nvim",
-	-- Autopairs: [], (), "", '', etc
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("config.nvim-autopairs")
-		end,
-	},
-	-- Show indentation and blankline
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		config = function()
-			require("config.indent-blankline")
-		end,
-	},
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
+  -- Colorscheme
+  "tanvirtin/monokai.nvim",
+  -- Autopairs: [], (), "", '', etc
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("config.nvim-autopairs")
+    end,
+  },
+  -- Show indentation and blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function()
+      require("config.indent-blankline")
+    end,
+  },
+  -- Using lazy.nvim
+  {
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').setup {
+        -- optional configuration here
+      }
+      require('bamboo').load()
+    end,
+  },
+  -- Status line
+  -- {
+  --  "nvim-lualine/lualine.nvim",
+  --  dependencies = { "nvim-tree/nvim-web-devicons" },
+  --  config = function()
+  --    require("config.lualine")
+  --  end,
+  -- },
 })

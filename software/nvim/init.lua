@@ -9,10 +9,11 @@
 -- sudo apt update
 -- sudo apt install neovim
 -- optional:
--- sudo apt install lua5.1 luarocks
--- sudo apt install python3-neovim
+--   sudo apt install lua5.1 luarocks
+--   sudo apt install python3-neovim
+--   sudo apt install git
 
--- check health
+-- health check
 require("vim.lsp.health").check()
 
 -- load options
