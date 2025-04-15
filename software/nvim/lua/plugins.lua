@@ -88,6 +88,14 @@ require("lazy").setup({
       require('bamboo').load()
     end,
   },
+  -- Using coc
+  -- {
+  --   'neoclide/coc.nvim',
+  --   branch = "release",
+  --   priority = 1000,
+  --   config = function()
+  --   end,
+  -- },
   -- Status line
   -- {
   --  "nvim-lualine/lualine.nvim",
