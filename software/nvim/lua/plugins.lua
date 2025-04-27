@@ -41,7 +41,8 @@ vim.opt.rtp:prepend(lazypath)
 require("vim.treesitter.health").check()     
 require("lazy").setup({
   {
-    "folke/which-key.nvim",
+    -- github: "folke/which-key.nvim",
+    "https://gitee.com/iyongliang/mirror-which-key.nvim",
     event = "VeryLazy",
     opts = {
       -- your configuration comes here
@@ -59,10 +60,11 @@ require("lazy").setup({
     },
   },
   -- Colorscheme
-  "tanvirtin/monokai.nvim",
+  -- "tanvirtin/monokai.nvim",
   -- Autopairs: [], (), "", '', etc
   {
-    "windwp/nvim-autopairs",
+    -- github: "windwp/nvim-autopairs",
+    "https://gitee.com/iyongliang/mirror-nvim-autopairs",
     event = "InsertEnter",
     config = function()
       require("config.nvim-autopairs")
@@ -70,7 +72,8 @@ require("lazy").setup({
   },
   -- Show indentation and blankline
   {
-    "lukas-reineke/indent-blankline.nvim",
+    -- "lukas-reineke/indent-blankline.nvim",
+    "https://gitee.com/iyongliang/mirror-indent-blankline.nvim",
     main = "ibl",
     config = function()
       require("config.indent-blankline")
@@ -78,7 +81,8 @@ require("lazy").setup({
   },
   -- Using lazy.nvim
   {
-    'ribru17/bamboo.nvim',
+    -- github 'ribru17/bamboo.nvim',
+    "https://gitee.com/iyongliang/mirror-bamboo.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -88,20 +92,25 @@ require("lazy").setup({
       require('bamboo').load()
     end,
   },
-  -- Using coc
+  -- Using coc.vim
   -- {
-  --   'neoclide/coc.nvim',
+  --   -- github: 'neoclide/coc.vim'
+  --   "https://gitee.com/iyongliang/mirror-coc.nvim",
   --   branch = "release",
   --   priority = 1000,
   --   config = function()
   --   end,
   -- },
   -- Status line
-  -- {
-  --  "nvim-lualine/lualine.nvim",
-  --  dependencies = { "nvim-tree/nvim-web-devicons" },
-  --  config = function()
-  --    require("config.lualine")
-  --  end,
-  -- },
+  {
+    -- "nvim-lualine/lualine.nvim",
+    "https://gitee.com/iyongliang/mirror-lualine.nvim",
+    dependencies = { 
+        -- "nvim-tree/nvim-web-devicons"
+        "https://gitee.com/iyongliang/mirror-nvim-web-devicons"
+    },
+    config = function()
+      require("config.lualine")
+    end,
+  },
 })
