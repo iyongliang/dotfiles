@@ -121,4 +121,18 @@ alias stm=sendToMe $1
 alias ctm=cloneToMe $1 $2
 alias ctmh=cloneToMeHttp $1 $2
 
+# for nodejs
+export PATH=/usr/local/node/bin:$PATH
+
+# for golang
+export GO111MODULE=on
+export GOPROXY="https://goproxy.cn,direct"
+
+# for rust
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+if [ -d "$HOME/.cargo/bin" ]; then
+    . "$HOME/.cargo/env"
+fi
+
 # =========================== Custom end ===================================
