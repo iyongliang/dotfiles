@@ -1,1 +1,3 @@
 .vscode
+software/nvim/lazy
+software/nvim/lazy-lock.json

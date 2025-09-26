@@ -1,6 +1,6 @@
 -- Install Lazy.nvim automatically if it's not installed(Bootstraping)
 -- Hint: string concatenation is done by `..`
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
 local iszh = os.getenv("LANG")
 if iszh == "zh_CN.UTF-8" then
   gitrepo = "https://gitee.com/iyongliang/mirror-lazy.nvim.git"
@@ -8,12 +8,13 @@ else
   gitrepo = "https://github.com/folke/lazy.nvim.git"
 end
 if not vim.loop.fs_stat(lazypath) then
+  vim.notify("clone lazy from " .. gitrepo)
   vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     gitrepo,
-    "--branch=stable", -- latest stable release
+    "--branch=main", -- latest stable release
     lazypath,
   })
 end
@@ -92,6 +93,19 @@ require("lazy").setup({
       require('bamboo').load()
     end,
   },
+  -- Tree Sidebar
+  {
+    -- "nvim-tree/nvim-tree.lua"
+    "https://gitee.com/iyongliang/mirror-nvim-tree.lua",
+    event = "VimEnter",
+    dependencies = { 
+        -- "nvim-tree/nvim-web-devicons"
+        "https://gitee.com/iyongliang/mirror-nvim-web-devicons"
+    },
+    config = function()
+      require("config.nvim-tree")
+    end,
+  },
   -- Using coc.vim
   -- {
   --   -- github: 'neoclide/coc.vim'
@@ -113,4 +127,11 @@ require("lazy").setup({
       require("config.lualine")
     end,
   },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+  }
+}, {
+  root = vim.fn.stdpath("config") .. "/lazy",
 })
