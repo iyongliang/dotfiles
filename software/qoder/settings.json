@@ -1,0 +1,246 @@
+{
+  "clang-format.executable": "clang-format",
+  "clang.executable": "/usr/bin/clang",
+  "clang-format.style": "file",
+  "clang-format.fallbackStyle": "Google",
+  "clang.cflags": [
+    "-std=gnu11"
+  ],
+  "clang.cxxflags": [
+    "-std=c++11",
+    "-Wall",
+    "-I${workspaceRoot}/include",
+    "-I${cwd}/include",
+    "-I${env.ENVIROMENT_VARIABLE}/include"
+  ],
+  "cmake.configureOnOpen": true,
+  "[css]": {
+    "editor.foldingStrategy": "indentation"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  },
+  "editor.fontFamily": "'MicrosoftYaHei', 'Fira Code Retina', 'Fira Mono for Powerline', 'Cascadia Mono', 'Ubuntu Mono Regular', 'JetBrains Mono', 'Monaco', 'Droid Sans Mono', 'Droid Sans Fallback'",
+  "editor.fontSize": 16,
+  "editor.fontWeight": 350,
+  "editor.formatOnPaste": false,
+  "editor.insertSpaces": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.tabSize": 8
+  },
+  "[makefile]": {
+    "editor.tabSize": 8
+  },
+  "[python]": {
+    "gitlens.codeLens.symbolScopes": [
+      "!Module"
+    ],
+    "editor.wordBasedSuggestions": "off",
+    "editor.tabSize": 4,
+    "editor.formatOnType": true
+  },
+  "editor.tabSize": 4,
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.am": "makefile",
+    "control": "plaintext"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.mo": true
+  },
+  "git.confirmSync": false,
+  "go.gopath": "~/Github/gocode",
+  "git.ignoreLegacyWarning": true,
+  "go.buildOnSave": "workspace",
+  "go.formatTool": "gofmt",
+  "go.lintOnSave": "package",
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "package",
+  "[html]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.foldingStrategy": "indentation"
+  },
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.suggest.autoImports": false,
+  "javascript.suggest.completeJSDocs": false,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "[javascript]": {
+    "editor.showUnused": false
+  },
+  "[javascriptreact]": {
+    "editor.showUnused": true
+  },
+  "mesonbuild.configureOnOpen": true,
+  "mesonbuild.configureOptions": [
+    "-std=c++11",
+    "--buildtype=debug"
+  ],
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": "{{put-password-here}}"
+    }
+  ],
+  "python.autoComplete.extraPaths": [],
+  "python.analysis.extraPaths": [],
+  "python.analysis.completeFunctionParens": true,
+  "python.autoComplete.addBrackets": true,
+  "python.envFile": "${workspaceFolder}/.vscode/.env",
+  "python.languageServer": "Pylance",
+  "python.linting.pylintUseMinimalCheckers": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "settingsSync.ignoredExtensions": [
+    "eamodio.gitlens"
+  ],
+  "shellcheck.disableVersionCheck": true,
+  "terminal.integrated.fontFamily": "monospace",
+  "typescript.referencesCodeLens.enabled": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.activeBackground1": "#ff0000"
+  },
+  "workbench.editorAssociations": {
+    "*.ui": "default"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "remote.SSH.remotePlatform": {
+    "U24": "linux",
+    "192.168.0.144": "linux",
+    "192.168.0.50": "linux",
+    "192.168.0.59": "linux",
+    "192.168.0.123": "linux"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.fontSize": 15,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "editor.guides.indentation": false,
+  "editor.trimAutoWhitespace": true,
+  "[c]": {
+    "editor.trimAutoWhitespace": false
+  },
+  "[cpp]": {},
+  "editor.largeFileOptimizations": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.formatOnType": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "[windows]": {
+    "clang.path": "C:\\Program Files\\LLVM\\bin\\clangd-18.exe"
+  },
+  "[unix]": {
+    "Lingma.LocalStoragePath": "/home/yongliang/.lingma"
+  },
+  "rust-analyzer.trace.extension": true,
+  "rust-analyzer.linkedProjects": [
+    "rust-by-example/ch07-expression/ex25-expression/Cargo.toml"
+  ],
+  "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+    "google-*",
+    "modernize-*",
+    "performance-*",
+    "clang-analyzer-*",
+    "misc-*"
+  ],
+  "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+    "modernize-macro-to-enum",
+    "misc-include-cleaner"
+  ],
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.onConfigChanged": "restart",
+  "cmake.exportCompileCommandsFile": true,
+  "clangd.fallbackFlags": [
+    "-I${workspaceFolder}/include"
+  ],
+  "clangd.inactiveRegions.useBackgroundHighlight": true,
+  "[linux]": {
+    "clangd.path": "/usr/bin/clangd-18"
+  },
+  "clangd.arguments": [
+    "--enable-config",
+    "--pretty",
+    "--all-scopes-completion",
+    "--cross-file-rename"
+  ],
+  "Lingma.cloudModelLanguagesOrFileExtensions": "txt",
+  "files.insertFinalNewline": true,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "makefile.configureOnOpen": false,
+  "chat.commandCenter.enabled": false,
+  "codingcopilot.enableAutoCompletions": false,
+  "codingcopilot.enableNextEditSuggestions": false,
+  "codingcopilot.floatShortcut": false,
+  "codingcopilot.enableInlineChat": false,
+  "codingcopilot.enableInlineChatAutoFormatCode": false,
+  "codingcopilot.enableCodelens": false,
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "Lingma.cloudModelAutoTriggerGenerateLength": "medium",
+  "Lingma.cloudModelAutoTriggerDisplayRule": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "chat.agent.enabled": false,
+  "app": {
+    "configAdvancedProxyMode": "system",
+    "configAdvancedAutoUpdate": true,
+    "configAdvancedProxyURL": "",
+    "configChatCommandDenyList": "rm,mv,sudo,wget,curl,chown",
+    "configChatAutoRunMcpTools": false,
+    "configChatWebToolsMode": "Ask every time",
+    "configChatAskModeUseTools": true,
+    "configChatEditFileTool": false,
+    "configChatTerminalRunMode": "askEveryTime",
+    "configChatCommandAllowlist": "",
+    "configChatMethodQuickOperation": false,
+    "configChatShowSelectionToolbar": true,
+    "configGeneralAiResponseLanguage": "zh-cn",
+    "configGeneralDisplayLanguage": "zh-cn",
+    "configGeneralImprovementPlan": "agree",
+    "configGeneralImportSettings": "VS Code",
+    "configCodebaseAutoIndex": true,
+    "configCodebaseFileNumber": 0,
+    "configCodebaseProgress": "none",
+    "configCodebaseIsIllegal": false,
+    "configCodebaseWorkspacePath": "",
+    "configCompletionEnableCompletion": true,
+    "configCompletionAutoTriggerLength": "medium",
+    "configCompletionEnableNES": true,
+    "configQuestEnable": true,
+    "configMemoryAutoGenerate": true
+  },
+  "workbench.colorTheme": "Qoder Light",
+  "diffEditor.wordWrap": "on",
+  "files.eol": "\n"
+}
