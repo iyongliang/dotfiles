@@ -85,25 +85,12 @@ require("lazy").setup({
     -- github 'ribru17/bamboo.nvim',
     "https://gitee.com/iyongliang/mirror-bamboo.nvim",
     lazy = false,
-    priority = 1000,
+    priority = 900,
     config = function()
       require('bamboo').setup {
         -- optional configuration here
       }
       require('bamboo').load()
-    end,
-  },
-  -- Tree Sidebar
-  {
-    -- "nvim-tree/nvim-tree.lua"
-    "https://gitee.com/iyongliang/mirror-nvim-tree.lua",
-    event = "VimEnter",
-    dependencies = { 
-        -- "nvim-tree/nvim-web-devicons"
-        "https://gitee.com/iyongliang/mirror-nvim-web-devicons"
-    },
-    config = function()
-      require("config.nvim-tree")
     end,
   },
   -- Using coc.vim
@@ -128,9 +115,11 @@ require("lazy").setup({
     end,
   },
   {
-    "ellisonleao/gruvbox.nvim",
+    -- "rebelot/kanagawa.nvim",
+    "https://gitee.com/iyongliang/mirror-kanagawa.nvim",
     priority = 1000,
-    config = true,
+    config = function()
+    end,
   }
 }, {
   root = vim.fn.stdpath("config") .. "/lazy",

@@ -32,4 +32,3 @@ require("plugins")
 -- set colorscheme
 require("colorscheme")
 
-require("nvim-tree").setup()
