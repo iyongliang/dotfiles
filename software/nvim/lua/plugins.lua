@@ -120,6 +120,12 @@ require("lazy").setup({
     priority = 1000,
     config = function()
     end,
+  },
+  {
+    -- "ellisonleao/gruvbox.nvim",
+    "https://gitee.com/iyongliang/mirror-gruvbox.nvim",
+    priority = 1000,
+    config = true,
   }
 }, {
   root = vim.fn.stdpath("config") .. "/lazy",
