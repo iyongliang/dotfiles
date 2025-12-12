@@ -1,13 +1,19 @@
 -- Install Lazy.nvim automatically if it's not installed(Bootstraping)
 -- Hint: string concatenation is done by `..`
 local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
-local iszh = os.getenv("LANG") or ""
-if iszh.match("zh_CN") then
-  gitrepo = "https://gitee.com/iyongliang/lazy.nvim.git"
-else
-  gitrepo = "https://github.com/folke/lazy.nvim.git"
+local langenv = os.getenv("LANG") or ""
+local is_zhcn = langenv:find("zh_CN") ~= nil
+
+local function get_url(repo)
+  if is_zhcn then
+    local plugin_name = repo:match("([^/]+)$")
+    repo = "https://gitee.com/iyongliang/" .. plugin_name .. ".git"
+  end
+  return repo
 end
+
 if not vim.loop.fs_stat(lazypath) then
+  gitrepo = get_url("https://github.com/folke/lazy.nvim")
   vim.notify("clone lazy from " .. gitrepo)
   vim.fn.system({
     "git",
@@ -42,8 +48,7 @@ vim.opt.rtp:prepend(lazypath)
 require("vim.treesitter.health").check()     
 require("lazy").setup({
   {
-    -- github: "folke/which-key.nvim",
-    "https://gitee.com/iyongliang/which-key.nvim",
+    url = get_url("folke/which-key.nvim"),
     event = "VeryLazy",
     opts = {
       -- your configuration comes here
@@ -64,8 +69,7 @@ require("lazy").setup({
   -- "tanvirtin/monokai.nvim",
   -- Autopairs: [], (), "", '', etc
   {
-    -- github: "windwp/nvim-autopairs",
-    "https://gitee.com/iyongliang/nvim-autopairs",
+    url = get_url("windwp/nvim-autopairs"),
     event = "InsertEnter",
     config = function()
       require("config.nvim-autopairs")
@@ -73,8 +77,7 @@ require("lazy").setup({
   },
   -- Show indentation and blankline
   {
-    -- "lukas-reineke/indent-blankline.nvim",
-    "https://gitee.com/iyongliang/indent-blankline.nvim",
+    url = get_url("lukas-reineke/indent-blankline.nvim"),
     main = "ibl",
     config = function()
       require("config.indent-blankline")
@@ -83,8 +86,7 @@ require("lazy").setup({
   -- Using lazy.nvim
   -- Using coc.vim
   -- {
-  --   -- github: 'neoclide/coc.vim'
-  --   "https://gitee.com/iyongliang/coc.nvim",
+  --   url = get_url("neoclide/coc.vim"),
   --   branch = "release",
   --   priority = 1000,
   --   config = function()
@@ -92,25 +94,21 @@ require("lazy").setup({
   -- },
   -- Status line
   {
-    -- "nvim-lualine/lualine.nvim",
-    "https://gitee.com/iyongliang/lualine.nvim",
-    dependencies = { 
-        -- "nvim-tree/nvim-web-devicons"
-        "https://gitee.com/iyongliang/nvim-web-devicons"
+    url = get_url("nvim-lualine/lualine.nvim"),
+    dependencies = {
+        get_url("nvim-tree/nvim-web-devicons"),
     },
     config = function()
       require("config.lualine")
     end,
   },
   {
-    -- "ellisonleao/gruvbox.nvim",
-    "https://gitee.com/iyongliang/gruvbox.nvim",
+    url = get_url("ellisonleao/gruvbox.nvim"),
     priority = 1000 ,
     config = true,
   },
   {
-    -- "nickkadutskyi/jb.nvim",
-    "https://gitee.com/iyongliang/jb.nvim",
+    url = get_url("nickkadutskyi/jb.nvim"),
     lazy = false,
     priority = 1000,
     opts = {},
