@@ -1,7 +1,6 @@
 -- define your colorscheme here
--- local colorscheme = 'bamboo-vulgaris'
--- local colorscheme = 'kanagawa'
-local colorscheme = 'gruvbox'
+-- local colorscheme = 'gruvbox'
+local colorscheme = 'jb'
 
 local is_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not is_ok then

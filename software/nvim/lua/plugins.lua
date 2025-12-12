@@ -1,9 +1,9 @@
 -- Install Lazy.nvim automatically if it's not installed(Bootstraping)
 -- Hint: string concatenation is done by `..`
 local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
-local iszh = os.getenv("LANG")
-if iszh == "zh_CN.UTF-8" then
-  gitrepo = "https://gitee.com/iyongliang/mirror-lazy.nvim.git"
+local iszh = os.getenv("LANG") or ""
+if iszh.match("zh_CN") then
+  gitrepo = "https://gitee.com/iyongliang/lazy.nvim.git"
 else
   gitrepo = "https://github.com/folke/lazy.nvim.git"
 end
@@ -43,7 +43,7 @@ require("vim.treesitter.health").check()
 require("lazy").setup({
   {
     -- github: "folke/which-key.nvim",
-    "https://gitee.com/iyongliang/mirror-which-key.nvim",
+    "https://gitee.com/iyongliang/which-key.nvim",
     event = "VeryLazy",
     opts = {
       -- your configuration comes here
@@ -65,7 +65,7 @@ require("lazy").setup({
   -- Autopairs: [], (), "", '', etc
   {
     -- github: "windwp/nvim-autopairs",
-    "https://gitee.com/iyongliang/mirror-nvim-autopairs",
+    "https://gitee.com/iyongliang/nvim-autopairs",
     event = "InsertEnter",
     config = function()
       require("config.nvim-autopairs")
@@ -74,29 +74,17 @@ require("lazy").setup({
   -- Show indentation and blankline
   {
     -- "lukas-reineke/indent-blankline.nvim",
-    "https://gitee.com/iyongliang/mirror-indent-blankline.nvim",
+    "https://gitee.com/iyongliang/indent-blankline.nvim",
     main = "ibl",
     config = function()
       require("config.indent-blankline")
     end,
   },
   -- Using lazy.nvim
-  {
-    -- github 'ribru17/bamboo.nvim',
-    "https://gitee.com/iyongliang/mirror-bamboo.nvim",
-    lazy = false,
-    priority = 900,
-    config = function()
-      require('bamboo').setup {
-        -- optional configuration here
-      }
-      require('bamboo').load()
-    end,
-  },
   -- Using coc.vim
   -- {
   --   -- github: 'neoclide/coc.vim'
-  --   "https://gitee.com/iyongliang/mirror-coc.nvim",
+  --   "https://gitee.com/iyongliang/coc.nvim",
   --   branch = "release",
   --   priority = 1000,
   --   config = function()
@@ -105,27 +93,31 @@ require("lazy").setup({
   -- Status line
   {
     -- "nvim-lualine/lualine.nvim",
-    "https://gitee.com/iyongliang/mirror-lualine.nvim",
+    "https://gitee.com/iyongliang/lualine.nvim",
     dependencies = { 
         -- "nvim-tree/nvim-web-devicons"
-        "https://gitee.com/iyongliang/mirror-nvim-web-devicons"
+        "https://gitee.com/iyongliang/nvim-web-devicons"
     },
     config = function()
       require("config.lualine")
     end,
   },
   {
-    -- "rebelot/kanagawa.nvim",
-    "https://gitee.com/iyongliang/mirror-kanagawa.nvim",
-    priority = 1000,
-    config = function()
-    end,
+    -- "ellisonleao/gruvbox.nvim",
+    "https://gitee.com/iyongliang/gruvbox.nvim",
+    priority = 1000 ,
+    config = true,
   },
   {
-    -- "ellisonleao/gruvbox.nvim",
-    "https://gitee.com/iyongliang/mirror-gruvbox.nvim",
+    -- "nickkadutskyi/jb.nvim",
+    "https://gitee.com/nickkadutskyi/jb.nvim",
+    lazy = false,
     priority = 1000,
-    config = true,
+    opts = {},
+    config = function()
+        -- require("jb").setup({transparent = true})
+        vim.cmd("colorscheme jb")
+    end,
   }
 }, {
   root = vim.fn.stdpath("config") .. "/lazy",
