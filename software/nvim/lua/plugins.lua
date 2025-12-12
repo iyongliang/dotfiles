@@ -110,7 +110,7 @@ require("lazy").setup({
   },
   {
     -- "nickkadutskyi/jb.nvim",
-    "https://gitee.com/nickkadutskyi/jb.nvim",
+    "https://gitee.com/iyongliang/jb.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
