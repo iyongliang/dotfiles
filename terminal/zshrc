@@ -51,13 +51,13 @@ ZSH_THEME="fino"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    docker
-    git
-    sudo
-    z
-    zsh-autosuggestions
-    zsh-completions
-    zsh-syntax-highlighting
+  docker
+  git
+  sudo
+  z
+  zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
 )
 
 # User configuration
@@ -73,8 +73,8 @@ source $ZSH/oh-my-zsh.sh
 # for MacOS
 osType="Linux"
 if [[ "$(uname -s)" == "Darwin" ]]; then
-    osType="Darwin"
-    export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.aliyun.com/homebrew/homebrew-bottles'
+  osType="Darwin"
+  export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.aliyun.com/homebrew/homebrew-bottles'
 fi
 
 # for Java
@@ -99,22 +99,22 @@ DEBFULLNAME="yongliang"
 
 # for Alias
 sendToMe() {
-    scp -r $1 $USER@$HOST:~
+  scp -r $1 $USER@$HOST:~
 }
 
 cloneToMe() {
-    echo "Will clone from git@${1:-github}.com:neeyongliang/${2:-test}.git"
-    git clone git@${1:-github}.com:neeyongliang/${2:-test}.git
+  echo "Will clone from git@${1:-github}.com:neeyongliang/${2:-test}.git"
+  git clone git@${1:-github}.com:neeyongliang/${2:-test}.git
 }
 
 cloneToMe() {
-    echo "Will clone from git@${1:-github}.com:neeyongliang/${2:-test}.git"
-    git clone git@${1:-github}.com:neeyongliang/${2:-test}.git
+  echo "Will clone from git@${1:-github}.com:neeyongliang/${2:-test}.git"
+  git clone git@${1:-github}.com:neeyongliang/${2:-test}.git
 }
 
 cloneToMeHttp() {
-    echo "Will clone from https://${1:-github}.com/neeyongliang/${2:-test}.git"
-    git clone https://${1:-github}.com/neeyongliang/${2:-test}.git
+  echo "Will clone from https://${1:-github}.com/neeyongliang/${2:-test}.git"
+  git clone https://${1:-github}.com/neeyongliang/${2:-test}.git
 }
 
 alias stm=sendToMe $1
@@ -122,7 +122,9 @@ alias ctm=cloneToMe $1 $2
 alias ctmh=cloneToMeHttp $1 $2
 
 # for nodejs
-export PATH=/usr/local/node/bin:$PATH
+if [ -d "/usr/local/node/bin" ]; then
+  PATH=/usr/local/node/bin:$PATH
+fi
 
 # for golang
 export GO111MODULE=on
@@ -131,8 +133,16 @@ export GOPROXY="https://goproxy.cn,direct"
 # for rust
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-if [ -d "$HOME/.cargo/bin" ]; then
-    . "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
 fi
+
+# for ai
+if [ -d "/root/.mimocode/bin" ]; then
+  PATH=/root/.mimocode/bin:$PATH
+elif [ -d "$HOME/.mimocode/bin" ]; then
+  PATH=$HOME/.mimocode/bin:$PATH
+fi
+export PATH
 
 # =========================== Custom end ===================================
