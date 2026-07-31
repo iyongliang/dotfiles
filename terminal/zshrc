@@ -143,6 +143,15 @@ if [ -d "/root/.mimocode/bin" ]; then
 elif [ -d "$HOME/.mimocode/bin" ]; then
   PATH=$HOME/.mimocode/bin:$PATH
 fi
+
+# for pip3
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="${HOME}/.local/bin:$PATH"
+fi
 export PATH
+
+# alias wget="wget --no-check-certificate"
+# export LANG=zh_CN.UTF-8
+# export LANGUAGE="zh_CN:zh"
 
 # =========================== Custom end ===================================

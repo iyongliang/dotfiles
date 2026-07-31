@@ -1,10 +1,11 @@
 # Qoder
 ## 插件
-- clangd
-- shellcheck
-- basedpyright
-- cmake tools
-- 
+- Clangd
+- ShellCheck
+- Github Repositories
+- Makefile Tools
+- Cmake Tools
+
 
 ## 模型
 
